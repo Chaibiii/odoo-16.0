@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <record id="school_tree_view" model="ir.ui.view">
+            <field name="name">school.tree.view</field>
+            <field name="model">school.management</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="country"/>
+                    <field name="todo_id" options="{'no_create': True, 'no_open': True}"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="school_form_view" model="ir.ui.view">
+            <field name="name">school.form.view</field>
+            <field name="model">school.management</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="country"/>
+                            <field name="todo_id" options="{'no_create': True, 'no_open': True}"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+
+        <record id="action_school_tree_view" model="ir.actions.act_window">
+            <field name="name">Todo List</field>
+            <field name="res_model">school.management</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+
+        <menuitem name="School" id="menu_school_list" sequence="110" parent="menu_owl_tutorial">
+           <menuitem name="School Management" id="menu_school_management" sequence="10" action="action_school_tree_view" />
+        </menuitem>
+    </data>
+</odoo>
